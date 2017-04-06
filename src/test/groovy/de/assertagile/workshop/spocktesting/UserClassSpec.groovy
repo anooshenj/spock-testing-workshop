@@ -1,6 +1,5 @@
 package de.assertagile.workshop.spocktesting
 
-import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -27,7 +26,6 @@ class UserClassSpec extends Specification {
         user.isOfAge()
     }
 
-    @PendingFeature
     def "creating a user with a future birthday throws an IllegalArgumentExpecption"() {
         when:
         new User("jdoe", "John", "Doe", LocalDate.now().plusDays(1))

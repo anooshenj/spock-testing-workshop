@@ -10,6 +10,9 @@ public class User {
     private final LocalDate birthday;
 
     public User(final String userName, final String firstName, final String lastName, final LocalDate birthday) {
+        if (birthday.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException();
+        }
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;

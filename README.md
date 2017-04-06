@@ -34,7 +34,7 @@ Then try to do the following objectives:
 - [x] The feature methods uses `given`, `when` and `then`. Try to make it shorter using an `expect` block.
 - [x] Our current implementation of [User] allows to create users who were not born yet. Write a `@PendingFeature` that expects that `"creating a user with a future birthday throws an IllegalArgumentException"`.
 - [x] Adjust [User] to make the feature no longer pending and remove the annotation.
-- [ ] Write another feature method that specifies that `"no exception in thrown if the birthday is in the past"`.
+- [x] Write another feature method that specifies that `"no exception in thrown if the birthday is in the past"`.
 
 Part 2: Data Driven Testing
 ---------------------------

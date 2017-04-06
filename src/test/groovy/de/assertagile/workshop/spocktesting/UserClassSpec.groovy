@@ -33,4 +33,12 @@ class UserClassSpec extends Specification {
         then:
         thrown(IllegalArgumentException)
     }
+
+    def "no exception in thrown if the birthday is in the past"() {
+        when:
+        new User("jdoe", "John", "Doe", LocalDate.now())
+
+        then:
+        notThrown(Exception)
+    }
 }

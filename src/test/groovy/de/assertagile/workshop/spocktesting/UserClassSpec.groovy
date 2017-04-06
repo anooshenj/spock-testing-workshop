@@ -14,21 +14,15 @@ class UserClassSpec extends Specification {
         given:
         user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(17))
 
-        when:
-        boolean isOfAge = user.isOfAge()
-
-        then:
-        !isOfAge
+        expect:
+        !user.isOfAge()
     }
 
     def "isOfAge should return true if the user's birthday is 18 years ago"() {
         given:
         user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(18))
 
-        when:
-        boolean isOfAge = user.isOfAge()
-
-        then:
-        isOfAge
+        expect:
+        user.isOfAge()
     }
 }

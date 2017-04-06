@@ -33,7 +33,7 @@ public class User {
     }
 
     public boolean isOfAge() {
-        return false;
+        return this.birthday.isEqual(LocalDate.now().minusYears(18));
     }
 
     public UserEntity toEntity() {

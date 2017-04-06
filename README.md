@@ -22,7 +22,7 @@ Note that in contrast to the [Spock Primer][Spock Primer section], I prefer usin
 Also I don't like block comments to stay in the test after it has been implemented (as suggested in the [Specifications as Documentation section]) for I want the *code* to be self-explanatory.
 
 Then try to do the following objectives:
-- [ ] The method `isOfAge` method in [User] is not implemented properly yet. However there is a test in [UserClassSpec] which is annotated with `@PendingFeature`. Change `isOfAge`, in order to make the test's expectation be true. Once you did, remove the annotation.<br/>
+- [x] The method `isOfAge` method in [User] is not implemented properly yet. However there is a test in [UserClassSpec] which is annotated with `@PendingFeature`. Change `isOfAge`, in order to make the test's expectation be true. Once you did, remove the annotation.<br/>
   Don't implement the method, just make the test's expectation true doing the very least necessary.
 - [ ] The feature methods uses `given`, `when` and `then`. Try to make it shorter using an `expect` block.
 - [ ] Our current implementation of [User] allows to create users who were not born yet. Write a `@PendingFeature` that expects that `"creating a user with a future birthday throws an IllegalArgumentExpecption"`.

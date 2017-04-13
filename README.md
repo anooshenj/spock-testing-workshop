@@ -37,7 +37,7 @@ Then try to do the following objectives:
 - [x] If you did the very least necessary in part 1, the implementation of `isOfAge` is not really how its name suggests because not only users are of age whose 18th birthday is today! Write another feature method to ensure that `"isOfAge should return true if the user's birthday is more than 18 years ago"`. Use a `where` block to test several cases.
 - [x] Add an `@Unroll` annotation to get more information about which cases have succeeded and which did not.
 - [x] Add another data driven test to test negative cases.
-- [ ] Review your features and try to make more test data driven.
+- [x] Review your features and try to make more test data driven.
 
 Part 3: Mocking and Stubbing
 ----------------------------

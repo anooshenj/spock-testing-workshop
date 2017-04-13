@@ -41,4 +41,15 @@ class UserClassSpec extends Specification {
         then:
         notThrown(Exception)
     }
+
+    def "isOfAge should return true if the user's birthday is more than 18 years ago"(LocalDate birthDay) {
+        given:
+        user = new User("jdoe", "John", "Doe", birthDay)
+
+        expect:
+        user.isOfAge()
+
+        where:
+        birthDay << [LocalDate.now().minusYears(18), LocalDate.now().minusYears(35)]
+    }
 }

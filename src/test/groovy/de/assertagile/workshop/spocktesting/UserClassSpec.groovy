@@ -54,4 +54,16 @@ class UserClassSpec extends Specification {
         where:
         birthDay << [LocalDate.now().minusYears(18), LocalDate.now().minusYears(35)]
     }
+
+    @Unroll("isOfAge should return false if the user's birthday is #birthDay")
+    def "isOfAge should return false if the user's birthday is less than 18 years ago"(LocalDate birthDay) {
+        given:
+        user = new User("jdoe", "John", "Doe", birthDay)
+
+        expect:
+        !user.isOfAge()
+
+        where:
+        birthDay << [LocalDate.now().minusYears(18).plusDays(1), LocalDate.now().minusYears(10)]
+    }
 }

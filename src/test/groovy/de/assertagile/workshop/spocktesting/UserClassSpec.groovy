@@ -2,6 +2,7 @@ package de.assertagile.workshop.spocktesting
 
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
 
 import java.time.LocalDate
 
@@ -42,6 +43,7 @@ class UserClassSpec extends Specification {
         notThrown(Exception)
     }
 
+    @Unroll("isOfAge should return true if the user's birthday is #birthDay")
     def "isOfAge should return true if the user's birthday is more than 18 years ago"(LocalDate birthDay) {
         given:
         user = new User("jdoe", "John", "Doe", birthDay)

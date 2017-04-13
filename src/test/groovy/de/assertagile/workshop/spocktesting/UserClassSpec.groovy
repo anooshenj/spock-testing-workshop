@@ -27,12 +27,16 @@ class UserClassSpec extends Specification {
         user.isOfAge()
     }
 
-    def "creating a user with a future birthday throws an IllegalArgumentExpecption"() {
+    @Unroll("creating a user with a future birthday #birthDay throws an IllegalArgumentExpecption")
+    def "creating a user with a future birthday throws an IllegalArgumentExpecption"(LocalDate birthDay) {
         when:
-        new User("jdoe", "John", "Doe", LocalDate.now().plusDays(1))
+        new User("jdoe", "John", "Doe", birthDay)
 
         then:
         thrown(IllegalArgumentException)
+
+        where:
+        birthDay << [LocalDate.now().plusDays(1), LocalDate.now().plusMonths(1), LocalDate.now().plusYears(1)]
     }
 
     def "no exception in thrown if the birthday is in the past"() {

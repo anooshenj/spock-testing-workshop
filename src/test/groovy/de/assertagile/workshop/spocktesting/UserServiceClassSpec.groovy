@@ -34,4 +34,19 @@ class UserServiceClassSpec extends Specification {
         then:
         1 * userRepositoryMock.saveUser(userEntityMock)
     }
+
+    def "registerUser does not persist user data if the user name was registered before"() {
+        given:
+        User user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(18))
+        userRepositoryMock.findUserByUserName(user.userName) >> { user.toEntity() }
+
+        when:
+        userService.registerUser(user)
+
+        then:
+        0 * userRepositoryMock.saveUser(user.toEntity())
+
+        and:
+        thrown(IllegalArgumentException)
+    }
 }

@@ -9,6 +9,9 @@ public class UserService {
     }
 
     public void registerUser(final User user) {
+        if (null != this.userRepository.findUserByUserName(user.getUserName())) {
+            throw new IllegalArgumentException("user already registered");
+        }
         this.userRepository.saveUser(user.toEntity());
     }
 }

@@ -1,6 +1,7 @@
 package de.assertagile.workshop.spocktesting;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 class UserEntity {
 
@@ -48,5 +49,25 @@ class UserEntity {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final UserEntity that = (UserEntity) o;
+        return Objects.equals(userName, that.userName) &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(birthday, that.birthday);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, firstName, lastName, birthday);
     }
 }

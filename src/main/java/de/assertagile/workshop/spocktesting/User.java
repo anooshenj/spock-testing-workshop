@@ -41,6 +41,6 @@ public class User {
     }
 
     public UserEntity toEntity() {
-        return null;
+        return new UserEntity(userName, firstName, lastName, birthday);
     }
 }

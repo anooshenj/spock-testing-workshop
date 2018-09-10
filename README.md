@@ -9,12 +9,12 @@ Project Setup with Maven
 ------------------------
 In order to get [Spock] into our Maven project, we need to do the following in our [pom.xml].
 
-1. Add Groovy as a (test) dependency (see [pom.xml](pom.xml#L27-L32)).
-2. Add Spock dependency (see [pom.xml](pom.xml#L34-L39)).
-3. Add compiler configuration for Groovy since Maven’s default only compiles Java (see [pom.xml](pom.xml#L94-L120)).
-4. Make Maven aware of `/src/test/groovy` being a test source directory since Maven’s default is `/src/test/java` (see [pom.xml](pom.xml#L76-L77)).
-5. Make Maven Surefire plugin aware of files ending with `*Spec` are test class files since Surefire’s default is `*Test` (see [pom.xml](pom.xml#L122-L133)).
-6. Add CGLib and Objenesis in order to be able to Mock classes (see [pom.xml](pom.xml#L41-L57)).
+1. Add Groovy as a (test) dependency (see [pom.xml](pom.xml#L27-L33)).
+2. Add Spock dependency (see [pom.xml](pom.xml#L35-L40)).
+3. Add the Bintray plugin repository for the latest Groovy Eclipse compiler (see [pom.xml](pom.xml#L138-L150)). Then add compiler configuration for Groovy since Maven’s default only compiles Java (see [pom.xml](pom.xml#L95-L121)).
+4. Make Maven aware of `/src/test/groovy` being a test source directory since Maven’s default is `/src/test/java` (see [pom.xml](pom.xml#L77-L78)).
+5. Make Maven Surefire plugin aware of files ending with `*Spec` are test class files since Surefire’s default is `*Test` (see [pom.xml](pom.xml#L123-L134)).
+6. Add CGLib and Objenesis in order to be able to Mock classes (see [pom.xml](pom.xml#L42-L58)).
 
 Part 1: Blocks, Expectations and Pending Features
 -------------------------------------------------
@@ -28,7 +28,7 @@ Then try to do the following objectives:
 - [x] The method `isOfAge` method in [User] is not implemented properly yet. However there is a test in [UserClassSpec] which is annotated with `@PendingFeature`. Change `isOfAge`, in order to make the test's expectation be true. Once you did, remove the annotation.<br/>
   Don't implement the method, just make the test's expectation true doing the very least necessary.
 - [x] The feature methods uses `given`, `when` and `then`. Try to make it shorter using an `expect` block.
-- [x] Our current implementation of [User] allows to create users who were not born yet. Write a `@PendingFeature` that expects that `"creating a user with a future birthday throws an IllegalArgumentExpecption"`.
+- [x] Our current implementation of [User] allows to create users who were not born yet. Write a `@PendingFeature` that expects that `"creating a user with a future birthday throws an IllegalArgumentException"`.
 - [x] Adjust [User] to make the feature no longer pending and remove the annotation.
 - [x] Write another feature method that specifies that `"no exception in thrown if the birthday is in the past"`.
 

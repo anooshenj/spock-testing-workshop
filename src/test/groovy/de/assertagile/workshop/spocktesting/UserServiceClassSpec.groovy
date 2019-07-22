@@ -20,7 +20,11 @@ class UserServiceClassSpec extends Specification {
         userService.registerUser(user)
 
         then:
-        1 * userRepositoryMock.saveUser(user.toEntity())
+        1 * userRepositoryMock.saveUser({ UserEntity userEntity ->
+            userEntity.userName == "jdoe"
+            userEntity.firstName == "John"
+            userEntity.lastName == "Doe"
+        })
     }
 
     def "registerUser persists the user data via UserRepository (Mock)"() {

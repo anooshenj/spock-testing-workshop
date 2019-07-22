@@ -11,7 +11,7 @@ In order to get [Spock] into our Maven project, we need to do the following in o
 
 1. Add Groovy as a (test) dependency (see [pom.xml](pom.xml#L27-L33)).
 2. Add Spock dependency (see [pom.xml](pom.xml#L35-L40)).
-3. Add CGLib and Objenesis in order to be able to Mock classes (see [pom.xml](pom.xml#L42-L58)).
+3. Add ByteBuddy and Objenesis in order to be able to Mock classes (see [pom.xml](pom.xml#L42-L58)).
 4. Make Maven aware of `/src/test/groovy` being a test source directory since Maven’s default is `/src/test/java` (see [pom.xml](pom.xml#L77-L78)).
 5. Add the [GMavenPlus] plugin, to compile your Groovy sources (see [pom.xml](pom.xml#L81-L95)).
 6. Make Maven Surefire plugin aware of files ending with `*Spec` are test class files since Surefire’s default is `*Test` (see [pom.xml](pom.xml#L102-L113)).
@@ -64,12 +64,12 @@ Helpful Resources and Further Reading
 
 [Spock]: <http://spockframework.org/>
 [Spock Framework Reference Documentation]: <http://docs.spockframework.org/>
-[Spock Primer section]: <http://spockframework.org/spock/docs/1.1/spock_primer.html>
-[Specifications as Documentation section]: <http://spockframework.org/spock/docs/1.1/spock_primer.html#specs-as-doc>
-[Data Driven Testing section]: <http://spockframework.org/spock/docs/1.1/data_driven_testing.html>
-[Interaction Based Testing section]: <http://spockframework.org/spock/docs/1.1/interaction_based_testing.html>
-[Extensions section]: <http://spockframework.org/spock/docs/1.1/extensions.html>
-[Modules section]: <http://spockframework.org/spock/docs/1.1/modules.html>
+[Spock Primer section]: <http://spockframework.org/spock/docs/1.3/spock_primer.html>
+[Specifications as Documentation section]: <http://spockframework.org/spock/docs/1.3/spock_primer.html#specs-as-doc>
+[Data Driven Testing section]: <http://spockframework.org/spock/docs/1.3/data_driven_testing.html>
+[Interaction Based Testing section]: <http://spockframework.org/spock/docs/1.3/interaction_based_testing.html>
+[Extensions section]: <http://spockframework.org/spock/docs/1.3/extensions.html>
+[Modules section]: <http://spockframework.org/spock/docs/1.3/modules.html>
 
 [Idiomatic Spock]: <https://github.com/robfletcher/idiomatic-spock/blob/master/Idiomatic%20Spock.pdf>
 

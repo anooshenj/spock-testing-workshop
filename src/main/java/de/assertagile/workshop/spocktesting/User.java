@@ -39,7 +39,9 @@ public class User {
     }
 
     public boolean isOfAge() {
-        return false;
+        if (this.birthday.isBefore(LocalDate.now().minusYears(18).plusDays(1)))
+            return true;
+        else return false;
     }
 
     public UserEntity toEntity() {
@@ -47,7 +49,7 @@ public class User {
     }
 
     public void setBirthday(LocalDate birthday) {
-        if(birthday.isAfter(LocalDate.now())) {
+        if (birthday.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException();
         } else {
             this.birthday = birthday;

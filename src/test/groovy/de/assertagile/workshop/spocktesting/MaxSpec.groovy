@@ -11,7 +11,7 @@ class MaxSpec extends Specification {
 
         where:
         a | b | c
-        3 | 5 | 35
+        3 | 5 | 3
         7 | 0 | 7
         0 | 0 | 0
     }

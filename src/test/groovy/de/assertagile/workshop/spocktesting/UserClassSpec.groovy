@@ -3,6 +3,7 @@ package de.assertagile.workshop.spocktesting
 import spock.lang.PendingFeature
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
 
 import java.time.LocalDate
 
@@ -27,7 +28,31 @@ class UserClassSpec extends Specification {
         user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(18))
 
         expect:
+        user.isOfAge()
+    }
+
+    @Unroll
+    def "isOfAge should return true if the user's birthday is more than 18 years ago. Age #age is greater than 18"() {
+        given:
+        user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(age as long))
+
+        expect:
+        user.isOfAge()
+
+        where:
+        age << ([23, 60, 18])
+    }
+
+    @Unroll
+    def "isOfAge should return true if the user's birthday is more than 18 years ago. Age #age is less than 18"() {
+        given:
+        user = new User("jdoe", "John", "Doe", LocalDate.now().minusYears(age as long))
+
+        expect:
         !user.isOfAge()
+
+        where:
+        age << ([14, 16, 12])
     }
 
 
